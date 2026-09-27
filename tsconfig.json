@@ -1,3 +1,4 @@
+git commit -m "Fix build by adding missing configuration files and components"
 {
   "compilerOptions": {
     "target": "es5",
