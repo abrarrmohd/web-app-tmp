@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fbf1de;
+  --foreground: #3a0a17;
+  --ivory: #fffaf3;
+  --blush: #f6e8c9;
+  --rose: #9c1338;
+  --plum: #4a0d1f;
+  --gold: #c8992f;
+  --emerald: #155c44;
+  --sand: #f6e8c9;
+  --font-arabic: 'Amiri', 'Times New Roman', serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(200, 153, 47, 0.16), transparent 32%),
+    linear-gradient(180deg, #fffaf3 0%, #fbf1de 45%, #f7e7c4 100%);
+  color: var(--foreground);
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Delicate gold line-art floral sprig texture, used as a section background */
+.pattern-floral {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23c8992f' stroke-opacity='0.16' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M50 88 C50 68 50 45 50 25'/%3E%3Cpath d='M50 58 C40 53 34 42 40 30 C46 36 50 48 50 58 Z'/%3E%3Cpath d='M50 58 C60 53 66 42 60 30 C54 36 50 48 50 58 Z'/%3E%3Cpath d='M50 25 C46 20 44 14 48 10 C50 14 50 20 50 25 Z'/%3E%3Cpath d='M50 25 C54 20 56 14 52 10 C50 14 50 20 50 25 Z'/%3E%3Ccircle cx='50' cy='10' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Gold hairline divider with a central ornament, evocative of nikkahnama borders */
+.divider-gold {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 153, 47, 0.65), transparent);
+}
+
+.divider-gold::before {
+  content: '\2766';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  background: var(--ivory);
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+/* Double gold rule border used to frame invitation-style cards */
+.border-nikkahnama {
+  border: 1px solid rgba(200, 153, 47, 0.55);
+  outline: 1px solid rgba(200, 153, 47, 0.25);
+  outline-offset: 4px;
+}
