@@ -1,8 +1,8 @@
 export const couple = {
   groom: 'Abrar',
   bride: 'Naafia',
-  groomLineage: 'Son of Mrs. & Mr. Zubair',
-  brideLineage: 'Daughter of Mrs. & Mr. Thangalvadi',
+  groomLineage: 'Son of Mrs. & Mr. Mohamed Zubair',
+  brideLineage: 'Daughter of Mrs. & Mr. Tariq Thangalvadi',
   hashtag: '#AbrarWedsNaafia',
 };
 
@@ -16,6 +16,14 @@ export const ayah = {
   reference: 'Surah Ar-Rum 30:21',
 };
 
+// Traditional dua for the newlyweds (Sunan Abi Dawud 2130)
+export const dua = {
+  arabic: 'بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ',
+  translation: 'May Allah bless you both, shower His blessings upon you, and unite you in goodness.',
+};
+
+export const city = 'Chennai, Tamil Nadu';
+
 export type ScheduleItem = {
   ceremony: string;
   arabicName: string;
@@ -26,6 +34,9 @@ export type ScheduleItem = {
   address: string;
   mapsUrl: string;
   note: string;
+  /** Formal wording, as it would be printed on the card */
+  dateWords: string;
+  timeWords: string;
 };
 
 export const schedule: ScheduleItem[] = [
@@ -39,6 +50,8 @@ export const schedule: ScheduleItem[] = [
     address: 'Periyapet, Chennai, Tamil Nadu',
     mapsUrl: 'https://maps.google.com/?q=BKN+Auditorium+Periyapet+Chennai',
     note: 'Nikkah ceremony followed by lunch',
+    dateWords: 'the twenty-seventh of December',
+    timeWords: 'at eleven o\'clock in the morning',
   },
   {
     ceremony: 'Walima',
@@ -50,6 +63,8 @@ export const schedule: ScheduleItem[] = [
     address: 'Guindy, Chennai, Tamil Nadu',
     mapsUrl: 'https://maps.google.com/?q=Hablis+Hotel+Guindy+Chennai',
     note: 'Reception dinner in honour of the newlyweds',
+    dateWords: 'the twenty-eighth of December',
+    timeWords: 'at seven o\'clock in the evening',
   },
 ];
 

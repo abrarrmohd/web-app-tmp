@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { validatePhone } from '@/lib/phone';
 import { couple, rsvpNote, schedule } from '@/data/event';
 import type { Ceremony, RsvpFormState } from '@/types/rsvp';
-import { OrnamentDivider } from '@/components/motifs';
+import { SprigDivider } from '@/components/ink';
 
 const countryCodes = ['+91', '+1'];
 
@@ -94,18 +94,18 @@ export function RsvpForm() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="pattern-floral mx-auto max-w-3xl rounded-[2rem] border-nikkahnama bg-ivory/90 p-8 shadow-soft backdrop-blur-sm md:p-12"
+      className="paper-grain relative mx-auto max-w-3xl border-nikkahnama bg-cotton p-8 font-display text-ink shadow-soft md:p-12"
     >
-      <p className="text-sm uppercase tracking-[0.35em] text-gold">RSVP</p>
-      <h1 className="mt-4 font-display text-4xl text-maroon md:text-5xl">
-        {couple.groom} &amp; {couple.bride} would love for you to be there.
+      <p className="-rotate-2 font-hand text-3xl text-oxblood">kindly reply</p>
+      <h1 className="mt-4 font-heading text-4xl font-light italic text-oxblood md:text-5xl">
+        {couple.bride} &amp; {couple.groom} would love for you to be there.
       </h1>
-      <p className="mt-4 text-sm text-plum/70 md:text-base">{rsvpNote}</p>
+      <p className="mt-4 text-sm text-ink-soft md:text-base">{rsvpNote}</p>
 
-      <OrnamentDivider className="my-8" />
+      <SprigDivider className="my-8" />
 
       {submitted ? (
-        <div className="mt-8 rounded-2xl border border-emerald/30 bg-emerald/10 p-6 text-emerald-dark">
+        <div className="mt-8 rounded-sm border border-ink/20 bg-paper p-6 text-ink">
           <h2 className="font-display text-2xl">Jazakallah Khair!</h2>
           <p className="mt-2">
             Your RSVP has been recorded. We can&apos;t wait to celebrate with you, insha&apos;Allah.
@@ -115,21 +115,21 @@ export function RsvpForm() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
             <label className="block">
-              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-plum/70">Full name</span>
+              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-ink-soft">Full name</span>
               <input
                 value={form.fullName}
                 onChange={(event) => handleChange('fullName', event.target.value)}
-                className="w-full rounded-xl border border-plum/15 bg-[#fffaf7] px-4 py-3 outline-none transition focus:border-gold"
+                className="w-full rounded-sm border border-ink/20 bg-paper/60 text-ink placeholder:text-ink/35 px-4 py-3 outline-none transition focus:border-ink/60"
                 placeholder="Your good name"
               />
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-plum/70">Will you attend?</span>
+              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-ink-soft">Will you attend?</span>
               <select
                 value={form.attendance}
                 onChange={(event) => handleChange('attendance', event.target.value)}
-                className="w-full rounded-xl border border-plum/15 bg-[#fffaf7] px-4 py-3 outline-none transition focus:border-gold"
+                className="w-full rounded-sm border border-ink/20 bg-paper/60 text-ink placeholder:text-ink/35 px-4 py-3 outline-none transition focus:border-ink/60"
               >
                 <option value="">Select</option>
                 <option value="attending">Joyfully attending</option>
@@ -140,7 +140,7 @@ export function RsvpForm() {
 
           {form.attendance === 'attending' ? (
             <div>
-              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-plum/70">
+              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-ink-soft">
                 Which ceremonies will you join?
               </span>
               <div className="grid gap-3 sm:grid-cols-2">
@@ -150,19 +150,19 @@ export function RsvpForm() {
                   return (
                     <label
                       key={item.ceremony}
-                      className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${
-                        checked ? 'border-gold bg-gold/10' : 'border-plum/15 bg-[#fffaf7]'
+                      className={`flex cursor-pointer items-center gap-3 rounded-sm border px-4 py-3 transition ${
+                        checked ? 'border-oxblood/50 bg-blushpaper/60' : 'border-ink/20 bg-paper/60 text-ink placeholder:text-ink/35'
                       }`}
                     >
                       <input
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleCeremony(value)}
-                        className="h-4 w-4 accent-maroon"
+                        className="h-4 w-4 accent-[#7d2a2a]"
                       />
                       <span>
-                        <span className="block font-display text-lg text-maroon">{item.ceremony}</span>
-                        <span className="block text-xs text-plum/60">
+                        <span className="block font-display text-lg text-oxblood">{item.ceremony}</span>
+                        <span className="block text-xs text-ink-soft">
                           {item.day}, {item.date}
                         </span>
                       </span>
@@ -175,11 +175,11 @@ export function RsvpForm() {
 
           <div className="grid gap-6 md:grid-cols-[150px_1fr]">
             <label className="block">
-              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-plum/70">Country</span>
+              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-ink-soft">Country</span>
               <select
                 value={form.countryCode}
                 onChange={(event) => handleChange('countryCode', event.target.value)}
-                className="w-full rounded-xl border border-plum/15 bg-[#fffaf7] px-4 py-3 outline-none transition focus:border-gold"
+                className="w-full rounded-sm border border-ink/20 bg-paper/60 text-ink placeholder:text-ink/35 px-4 py-3 outline-none transition focus:border-ink/60"
               >
                 {countryCodes.map((code) => (
                   <option key={code} value={code}>{code}</option>
@@ -188,11 +188,11 @@ export function RsvpForm() {
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-plum/70">Phone number</span>
+              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-ink-soft">Phone number</span>
               <input
                 value={form.phone}
                 onChange={(event) => handleChange('phone', event.target.value)}
-                className="w-full rounded-xl border border-plum/15 bg-[#fffaf7] px-4 py-3 outline-none transition focus:border-gold"
+                className="w-full rounded-sm border border-ink/20 bg-paper/60 text-ink placeholder:text-ink/35 px-4 py-3 outline-none transition focus:border-ink/60"
                 placeholder={form.countryCode === '+91' ? '9876543210' : '4155552671'}
                 inputMode="numeric"
               />
@@ -201,11 +201,11 @@ export function RsvpForm() {
 
           <div className="grid gap-6 md:grid-cols-2">
             <label className="block">
-              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-plum/70">Guests</span>
+              <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-ink-soft">Guests</span>
               <select
                 value={form.guestCount}
                 onChange={(event) => handleChange('guestCount', event.target.value)}
-                className="w-full rounded-xl border border-plum/15 bg-[#fffaf7] px-4 py-3 outline-none transition focus:border-gold"
+                className="w-full rounded-sm border border-ink/20 bg-paper/60 text-ink placeholder:text-ink/35 px-4 py-3 outline-none transition focus:border-ink/60"
               >
                 <option value="1">1 guest</option>
                 <option value="2">2 guests</option>
@@ -214,31 +214,31 @@ export function RsvpForm() {
               </select>
             </label>
 
-            <div className="rounded-xl border border-dashed border-gold/40 bg-cream/50 p-4 text-sm text-plum/70">
-              <p className="font-medium text-plum">Tip</p>
+            <div className="rounded-sm border border-dashed border-ink/25 bg-paper/50 p-4 text-sm text-ink-soft">
+              <p className="font-medium text-oxblood">Tip</p>
               <p className="mt-2">Use E.164 format: +91 or +1 followed by 10 digits.</p>
             </div>
           </div>
 
           <label className="block">
-            <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-plum/70">Notes</span>
+            <span className="mb-2 block text-sm uppercase tracking-[0.2em] text-ink-soft">Notes</span>
             <textarea
               value={form.notes}
               onChange={(event) => handleChange('notes', event.target.value)}
               rows={4}
-              className="w-full rounded-xl border border-plum/15 bg-[#fffaf7] px-4 py-3 outline-none transition focus:border-gold"
+              className="w-full rounded-sm border border-ink/20 bg-paper/60 text-ink placeholder:text-ink/35 px-4 py-3 outline-none transition focus:border-ink/60"
               placeholder="Dietary preferences or special requests"
             />
           </label>
 
           {error ? (
-            <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</div>
+            <div className="rounded-sm border border-oxblood/30 bg-blushpaper px-4 py-3 text-sm text-oxblood">{error}</div>
           ) : null}
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-full bg-gradient-to-r from-maroon to-maroon-dark px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-ivory shadow-gold transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+            className="border border-ink bg-ink px-8 py-3 text-sm uppercase tracking-[0.2em] text-cotton transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
           >
             {isSubmitting ? 'Submitting…' : 'Submit RSVP'}
           </button>

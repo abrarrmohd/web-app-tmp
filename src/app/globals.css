@@ -1,43 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=EB+Garamond:ital,wght@0,400..600;1,400..500&family=La+Belle+Aurore&family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #fbf1de;
-  --foreground: #3a0a17;
-  --ivory: #fffaf3;
-  --blush: #f6e8c9;
-  --rose: #9c1338;
-  --plum: #4a0d1f;
-  --gold: #c8992f;
-  --emerald: #155c44;
-  --sand: #f6e8c9;
+  --paper: #f8efe0;
+  --ink: #243a30;
   --font-arabic: 'Amiri', 'Times New Roman', serif;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ruqaa: 'Aref Ruqaa', 'Amiri', serif;
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-hand: 'La Belle Aurore', cursive;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--paper);
 }
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top, rgba(200, 153, 47, 0.16), transparent 32%),
-    linear-gradient(180deg, #fffaf3 0%, #fbf1de 45%, #f7e7c4 100%);
-  color: var(--foreground);
-  font-family: 'Inter', Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, .font-display {
-  font-family: var(--font-display);
-  letter-spacing: 0.02em;
+::selection {
+  background: rgba(184, 106, 75, 0.25);
 }
 
 .font-arabic {
@@ -48,34 +43,66 @@ h1, h2, h3, h4, .font-display {
   text-wrap: balance;
 }
 
-/* Delicate gold line-art floral sprig texture, used as a section background */
-.pattern-floral {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23c8992f' stroke-opacity='0.16' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M50 88 C50 68 50 45 50 25'/%3E%3Cpath d='M50 58 C40 53 34 42 40 30 C46 36 50 48 50 58 Z'/%3E%3Cpath d='M50 58 C60 53 66 42 60 30 C54 36 50 48 50 58 Z'/%3E%3Cpath d='M50 25 C46 20 44 14 48 10 C50 14 50 20 50 25 Z'/%3E%3Cpath d='M50 25 C54 20 56 14 52 10 C50 14 50 20 50 25 Z'/%3E%3Ccircle cx='50' cy='10' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
+/* Fraunces with its softer, slightly wonky optical cut, like old metal type */
+.font-heading {
+  font-family: var(--font-heading);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
 }
 
-/* Gold hairline divider with a central ornament, evocative of nikkahnama borders */
-.divider-gold {
-  position: relative;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 153, 47, 0.65), transparent);
+/* Cotton paper: soft fibres and an uneven tone */
+.paper-grain {
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.55), transparent 55%),
+    radial-gradient(ellipse at 80% 85%, rgba(160, 120, 70, 0.08), transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.27 0 0 0 0 0.15 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.divider-gold::before {
-  content: '\2766';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--gold);
-  background: var(--ivory);
-  padding: 0 12px;
-  font-size: 14px;
+/* Linen weave for the dark table the envelope rests on */
+.linen {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0 1px, transparent 1px 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 0.9 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Double gold rule border used to frame invitation-style cards */
+/* Sanganeri hand-block print: small buti flowers on a half-drop repeat */
+.pattern-buti {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='%23d6337a' fill-opacity='0.7'%3E%3Cellipse cx='11' cy='7.5' rx='1.6' ry='2.6'/%3E%3Cellipse cx='11' cy='14.5' rx='1.6' ry='2.6'/%3E%3Cellipse cx='7.5' cy='11' rx='2.6' ry='1.6'/%3E%3Cellipse cx='14.5' cy='11' rx='2.6' ry='1.6'/%3E%3C/g%3E%3Ccircle cx='11' cy='11' r='1.3' fill='%23f89a1c'/%3E%3Cpath d='M30 36 q3 -5 8 -6 M33 40 q1 -4 -1 -8' stroke='%231b8e94' stroke-opacity='0.8' fill='none' stroke-width='0.9'/%3E%3Cg fill='%23f89a1c' fill-opacity='0.75'%3E%3Ccircle cx='33' cy='29' r='2'/%3E%3Ccircle cx='36.5' cy='31.5' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 44px 44px;
+}
+
+/* Kept for the RSVP page */
+.text-foil-static {
+  color: #7d2a2a;
+}
+
 .border-nikkahnama {
-  border: 1px solid rgba(200, 153, 47, 0.55);
-  outline: 1px solid rgba(200, 153, 47, 0.25);
+  border: 1px solid rgba(43, 58, 47, 0.35);
+  outline: 1px solid rgba(43, 58, 47, 0.15);
   outline-offset: 4px;
+}
+
+/* Lines that draw themselves like a pen stroke. Paths need pathLength="1". */
+.ink-draw path,
+.ink-draw circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ink-draw 4.5s ease-out forwards;
+}
+
+@keyframes ink-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-draw path,
+  .ink-draw circle {
+    stroke-dashoffset: 0;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
